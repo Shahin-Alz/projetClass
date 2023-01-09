@@ -10,4 +10,3 @@ console.log(boss.chronos);
 console.log(boss.lillith);
 
 
-console.log(boss.action);

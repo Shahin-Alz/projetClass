@@ -9,20 +9,21 @@ class Boss {
     action(reactionBoss) {
 
         if (this.pointDeVie <= this.pointDeVie * 0.2) {
-            // Le boss a moins de 20% de ses points de vie, il pose une énigme à l'utilisateur
+
             console.log("Le boss pose une énigme à l'utilisateur :");
-            // Choix aléatoire d'une énigme
+
             let question = questions[Math.floor(Math.random() * questions.length)];
             console.log(question.quest);
-            // Trois essais pour trouver la réponse
+
             for (let i = 0; i < 3; i++) {
-                let rep = prompt("Quelle est la réponse ?");
-                if (réponse === question.réponse) {
+                let reponse = prompt("Quelle est la réponse ?");
+                if (reponse === question.réponse) {
                     console.log("Bonne réponse ! Le boss est vaincu.");
                     this.pointDeVie = 0;
                     break;
                 } else {
                     console.log("Mauvaise réponse, essai suivant.");
+                    break;
                 }
             }
             console.log("Vous avez échoué, vous êtes morts.");
@@ -47,10 +48,8 @@ let questions = [{
     }
 ];
 
-let hasard = Math.floor(Math.random(3) * questions.length);
-let recupe_reponse = questions[hasard];
 
-console.log();
+
 
 
 let sauron = new Boss("Sauron", 50, 50, )
@@ -58,6 +57,8 @@ let chronos = new Boss("Chronos", 50, 50, )
 let lillith = new Boss("Lillith", 50, 50, )
 
 
+sauron.action()
+console.log(sauron);
 
 
 
@@ -65,4 +66,4 @@ export default {
     sauron,
     chronos,
     lillith,
-};
+}

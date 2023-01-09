@@ -7,14 +7,14 @@ class Heros {
         this.points_d_attaque = points_d_attaque;
     }
 
-    defense(contre) {
-        this.points_d_attaque = points_d_attaque * 0.5;
+    defense(boss) {
+        this.points_d_attaque = this.points_d_attaque * 0.5;
         this.points_de_vie = this.points_de_vie * 2.5;
     }
 
-    attack(ndm) {
-        this.points_d_attaque = points_d_attaque * 1.6;
-        this.points_de_vie.points_de_vie * 0.75;
+    attack(boss) {
+        this.points_d_attaque = this.points_d_attaque * 1.6;
+        this.points_de_vie * 0.75;
     }
 
 }
@@ -31,12 +31,12 @@ class Guerrier extends Heros {
             this.pointsDAttaque *= 1.25;
             this.pointDeRage = 0;
             // code pour faire perdre des points de vie au boss
-            boss.pointsDeVie -= this.pointsDAttaque;
-            console.log(this.nom + " attaque et inflige " + this.pointsDAttaque + " points de dégâts à " + boss.nom);
+            this.pointsDeVie -= this.pointsDAttaque;
+            console.log(this.nom + " attaque et inflige " + this.pointsDAttaque + " points de dégâts à " + this.nom);
         } else {
             // code pour faire perdre des points de vie au boss
-            boss.pointsDeVie -= this.pointsDAttaque;
-            console.log(this.nom + " attaque et inflige " + this.pointsDAttaque + " points de dégâts à " + boss.nom);
+            this.pointsDeVie -= this.pointsDAttaque;
+            console.log(this.nom + " attaque et inflige " + this.pointsDAttaque + " points de dégâts à " + this.nom);
         }
     }
 }
@@ -49,11 +49,11 @@ class Mage extends Heros {
         this.point_de_mana = point_de_mana;
     }
 
-    attack() {
+    attack(Boss) {
         if (this.pointDeMana >= 2) {
             this.pointDeMana -= 2;
             // code pour faire perdre des points de vie au boss
-            boss.pointsDeVie -= this.pointsDAttaque;
+            sauron.pointsDeVie -= this.pointsDAttaque;
         } else {
             this.pointDeMana += 7;
         }
@@ -79,8 +79,13 @@ let guerrier = new Guerrier("guerrier", 50, 50, 20)
 let mage = new Mage("mage", 50, 50, [7, 9, 11])
 let archer = new Archer("archer", 50, 50, [7, 8, 9, 10])
 
+
+
 guerrier.attack()
 console.log(guerrier);
+
+mage.attack()
+console.log(mage);
 
 export default {
     guerrier,
